@@ -6,29 +6,7 @@ h2 {
     color: #333;
 }
 
-textarea {
-    resize: none;
-}
-
 .list-group-item {
-    background-color: #fff;
-    border-radius: 5px;
-    margin-bottom: 10px;
-    transition: background-color 0.3s;
-    padding: 10px; /* Added padding for touch-friendly UI */
-}
-
-.list-group-item:hover {
-    background-color: #eaeaea;
-}
-
-@media (max-width: 768px) {
-    h4 {
-        font-size: 1.5rem; /* Adjust size for smaller screens */
-    }
-
-    button {
-        font-size: 1.2rem; /* Increase button size for touch */
-        padding: 10px; /* Make buttons larger */
-    }
+    border: 1px solid #ddd;
+    margin: 5px 0;
 }
