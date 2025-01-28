@@ -84,7 +84,7 @@ function clearAllNotes() {
     notesContainer.innerHTML = ''; // Clear displayed notes
 }
 
-// Function to get notes from localStorage
+// Function to get notes from
 function getNotes() {
     const notes = localStorage.getItem('notes');
     return notes ? JSON.parse(notes) : [];
