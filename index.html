@@ -3,62 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Temporary Notes App</title>
+    <title>Keep Notes App</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container mt-5">
-        <h2 class="text-center mb-4">Temporary Notes App</h2>
+        <h2 class="text-center mb-4">Keep Notes App</h2>
         <textarea id="noteInput" class="form-control" placeholder="Type your note here..." rows="5"></textarea>
         <button id="addNoteButton" class="btn btn-primary btn-block mt-3">Add Note</button>
         <div id="notesContainer" class="list-group mt-3"></div>
         <button id="clearAllButton" class="btn btn-danger btn-block mt-3">Clear All Notes</button>
     </div>
 
-    <script>
-    // Function to load notes from sessionStorage
-    function loadNotes() {
-        const notesContainer = document.getElementById('notesContainer');
-        notesContainer.innerHTML = ''; // Clear existing notes
-
-        // Get notes from sessionStorage
-        const notes = JSON.parse(sessionStorage.getItem('notes')) || [];
-        
-        // Display each note
-        notes.forEach(note => {
-            const noteElement = document.createElement('div');
-            noteElement.className = 'list-group-item';
-            noteElement.innerHTML = `${note.text}<br><small>${note.time}</small>`;
-            notesContainer.appendChild(noteElement);
-        });
-    }
-
-    // Event listener for adding a note
-    document.getElementById('addNoteButton').addEventListener('click', () => {
-        const noteText = document.getElementById('noteInput').value.trim();
-        if (noteText) {
-            const notes = JSON.parse(sessionStorage.getItem('notes')) || [];
-            const note = { text: noteText, time: new Date().toLocaleString() };
-            notes.push(note);
-
-            // Update sessionStorage
-            sessionStorage.setItem('notes', JSON.stringify(notes));
-
-            document.getElementById('noteInput').value = ''; // Clear input
-            loadNotes(); // Reload notes
-        } else {
-            alert("Please enter a note.");
-        }
-    });
-
-    // Event listener for clearing all notes
-    document.getElementById('clearAllButton').addEventListener('click', () => {
-        sessionStorage.removeItem('notes'); // Clear sessionStorage
-        loadNotes(); // Reload notes
-    });
-
-    // Load notes on initial page load
-    loadNotes();
-    </script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="app.js"></script>
 </body>
 </html>
